@@ -13,3 +13,11 @@
 
 ## User Stories
 
+### Show a list of bookmarks
+As a browser user
+So that I can access a list of favourited websites 
+I would like to see a list of bookmarks
+
+## Domain Model
+
+![image title](/images/dom_mod0.png)
