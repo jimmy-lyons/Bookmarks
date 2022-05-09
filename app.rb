@@ -8,11 +8,11 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/' do
-    'Bookmark Manager'
+    erb :index
   end
 
   get '/bookmarks' do
-    @lib = Bookmark_Library.new
+    @bookmarks = Bookmark_Library.list_bookmarks
     erb :bookmarks
   end
 
