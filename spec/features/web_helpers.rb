@@ -1,8 +1,10 @@
 public
 
 def has_expected_content(page)
-  array = ['Makers Academy', 'Google', 'BBC']
+  array = ['http://www.makersacademy.com/', 'www.destroyallsoftware.com/', 'http://www.google.com/']
   array.all? do |name|
     page.has_content?(name)
   end
 end
+
+
