@@ -1,7 +1,8 @@
 <h1>Bookmarks</h1>
-<%# <%= @lib.list_bookmarks.join('<br />') %> 
 
  <% @bookmarks.each do |bookmark| %>
-    <li><%= bookmark %></li>
+    <li><%= bookmark.keys.join %></li>
   <% end %>
-
+ <% @bookmarks.each do |bookmark| %>
+    <li><%= bookmark.values.join %></li>
+  <% end %>
