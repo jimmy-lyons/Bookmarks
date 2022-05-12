@@ -72,6 +72,7 @@ GEM
 PLATFORMS
   arm64-darwin-21
   x86_64-darwin-19
+  x86_64-darwin-21
 
 DEPENDENCIES
   capybara
@@ -82,4 +83,4 @@ DEPENDENCIES
   sinatra-contrib
 
 BUNDLED WITH
-   2.3.7
+   2.3.12
