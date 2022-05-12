@@ -1,8 +1,11 @@
 <h1>Bookmarks</h1>
 
- <% @bookmarks.each do |bookmark| %>
-    <li><%= bookmark.keys.join %></li>
+ <ul>
+  <% @bookmarks.each do |bookmark| %>
+    <li>
+      <a href="<%= bookmark.url %>">
+        <%= bookmark.title %>
+      </a>
+    </li>
   <% end %>
- <% @bookmarks.each do |bookmark| %>
-    <li><%= bookmark.values.join %></li>
-  <% end %>
+</ul>
