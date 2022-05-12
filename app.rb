@@ -16,6 +16,8 @@ class BookmarkManager < Sinatra::Base
     erb :bookmarks
   end
 
+  # need to link /bookmarks to /bookmarks/new
+
   get '/bookmarks/new' do
     erb :new
   end
