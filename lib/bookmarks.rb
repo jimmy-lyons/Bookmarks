@@ -26,9 +26,9 @@ class Bookmarks
     Bookmarks.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
   end
 
-  def self.delete(title:)
+  def self.delete(id:)
     connection = select_database
-    connection.exec_params("DELETE FROM bookmarks WHERE title=$1", [title])
+    connection.exec_params("DELETE FROM bookmarks WHERE id = $1", [id])
   end
 
   private
