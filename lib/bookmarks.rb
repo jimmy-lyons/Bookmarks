@@ -28,7 +28,6 @@ class Bookmarks
 
   def self.delete(title:)
     connection = select_database
-
     connection.exec_params("DELETE FROM bookmarks WHERE title=$1", [title])
   end
 
