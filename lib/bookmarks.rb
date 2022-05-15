@@ -20,15 +20,22 @@ class Bookmarks
 
   def self.create(url:, title:)
     connection = select_database
-    # this doesn't protect SQL injection but is meant to. Don't know how to fix...
     result = connection.exec_params("INSERT INTO bookmarks (url, title) VALUES($1, $2) RETURNING id, title, url;", [url, title])
-                                   #("INSERT INTO bookmarks (url, title) VALUES('#{url}', '#{title}') RETURNING id, title, url")
     Bookmarks.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
   end
 
   def self.delete(id:)
     connection = select_database
     connection.exec_params("DELETE FROM bookmarks WHERE id = $1", [id])
+  end
+
+  def self.edit(id:, title:, url:)
+    connection = select_database
+    result = connection.exec_params(
+      "UPDATE bookmarks SET url = $1, title = $2 where id = $3 RETURNING id, url, title",
+      [url, title, id]
+    )
+    Bookmarks.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
   end
 
   private

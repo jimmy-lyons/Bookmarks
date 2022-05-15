@@ -22,10 +22,8 @@ describe Bookmarks do
   describe '.create' do
     it 'creates a new bookmark' do
       bookmark = Bookmarks.create(url: 'http://www.example.org', title: 'example')
-      # persisted_data = PG.connect(dbname: 'bookmark_manager_test').query("SELECT * FROM bookmarks WHERE id = #{bookmark.id};")
 
       expect(bookmark).to be_a Bookmarks
-      # expect(bookmark.id).to eq persisted_data['id']
       expect(bookmark.title).to eq 'example'
       expect(bookmark.url).to eq 'http://www.example.org'
     end
@@ -38,6 +36,19 @@ describe Bookmarks do
       Bookmarks.delete(id: bookmark.id)
 
       expect(Bookmarks.list_bookmarks.length).to eq 0
+    end
+  end
+
+  describe '.edit' do
+    it 'updates the values of a given bookmark' do
+      bookmark = Bookmarks.create(title: 'Makers Academy', url: 'http://www.makersacademy.com')
+      updated_bookmark = Bookmarks.edit(id: bookmark.id, title: 'Yahoo', url: 'http://www.yahoo.com')
+
+      expect(updated_bookmark).to be_a Bookmarks
+      expect(updated_bookmark.id).to eq bookmark.id
+      expect(updated_bookmark.title).to eq 'Yahoo'
+      expect(updated_bookmark.url).to eq 'http://www.yahoo.com'
+      expect(Bookmarks.list_bookmarks.length).to eq 1
     end
   end
 end 

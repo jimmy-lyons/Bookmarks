@@ -23,6 +23,11 @@ As a user
 So I can store bookmark data for later retrieval
 I want to add a bookmark to Bookmark Manager
 
+### Delete bookmarks
+As a user
+So I can change a bookmark in Bookmark Manager
+I want to update a bookmark
+
 ## Domain Model
 
 ![image title](/images/dom_mod0.png)
