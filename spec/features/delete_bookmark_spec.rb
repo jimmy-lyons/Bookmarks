@@ -5,7 +5,7 @@ feature 'Delete a bookmark' do
     
     expect(page).to have_link('Yahoo', href: 'http://www.yahoo.com')
 
-    click_button "button#{bookmark.id}"
+    first('.bookmark').click_button 'Delete'
 
     expect(current_path).to eq '/bookmarks'
     expect(page).not_to have_link('Yahoo', href: 'http://www.yahoo.com')
