@@ -51,4 +51,16 @@ describe Bookmarks do
       expect(Bookmarks.list_bookmarks.length).to eq 1
     end
   end
+
+  describe '.find' do
+    it 'returns a specific bookmark object' do
+      bookmark = Bookmarks.create(title: 'Yahoo', url: 'http://www.yahoo.com')
+      result = Bookmarks.find(id: bookmark.id)
+
+      expect(bookmark).to be_a Bookmarks
+      expect(bookmark.id).to eq bookmark.id
+      expect(bookmark.title).to eq 'Yahoo'
+      expect(bookmark.url).to eq 'http://www.yahoo.com'
+    end
+  end
 end 
