@@ -28,6 +28,12 @@ As a user
 So I can change a bookmark in Bookmark Manager
 I want to update a bookmark
 
+
+### Additional - ensure that only valid urls are provided
+As a user
+So that the bookmarks I save are useful
+I want to only save a valid URL
+
 ## Domain Model
 
 ![image title](/images/dom_mod0.png)
