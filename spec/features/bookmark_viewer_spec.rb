@@ -10,5 +10,13 @@ feature 'displays list of bookmarks' do
     visit '/bookmarks'
     expect(has_expected_content(page)).to be true
   end
-  
+end
+
+feature 'has a button to add a new bookmark' do
+  scenario 'user clicks add button and is taken to page to add new bookmark' do
+    visit '/bookmarks'
+    click_button 'Add'
+
+    expect(current_path).to eq '/bookmarks/new'
+  end
 end
